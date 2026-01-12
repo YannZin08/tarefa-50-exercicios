@@ -128,3 +128,89 @@ function exercicio10() {
 
     alert("Pares: " + pares + "\nÍmpares: " + impares);
 }
+function exercicio11 () {
+    let indice = 0;
+    let soma = 0;
+
+    while (indice < 4) {
+        let nota= parseFloat(prompt("Digite a nota:"));
+        soma += nota;
+        indice++;
+    }
+    let media = soma / 4;
+    if (media >=7) {
+        alert("Média: " + media + "\nAprovado");
+    } else {
+        alert ("Media: " + media + "\nReprovado");
+    }
+}
+function exercicio12() {
+    let indice = 0;
+    let total = 0;
+
+    while (indice < 5) {
+        let valor = parseFloat(prompt("Digite o valor do produto:"));
+        total += valor;
+        indice++;
+    }
+
+    let final = total;
+    if (total > 200) {
+        final = total * 0.9;
+    }
+
+    alert("Total sem desconto: " + total + "\nTotal com desconto: " + final);
+}
+function exercicio13() {
+    let indice = 0;
+    let soma = 0;
+
+    while (indice < 6) {
+        let idade = parseInt(prompt("Digite a idade: "));
+        soma += idade;
+        indice++;
+    }
+    let media = soma / 6;
+    if (media >= 18) {
+        alert("Media: " + media + "\nMaior de idade");
+    } else {
+        alert("Média: " + media + "\nMenor de idade");
+    }
+}
+function exercicio14() {
+    let indice = 0;
+    let soma = 0;
+    let maior = 0;
+    let menor = Infinity;
+
+    while (indice < 5) {
+        let salario = parseFloat(prompt("Digite o salário:"));
+        soma += salario;
+
+        if (salario > maior) maior = salario;
+        if (salario < menor) menor = salario;
+
+        indice++;
+    }
+
+    let media = soma / 5;
+    let mensagem = media > 3000 ? "Salarios acima da media" : "Salario dentro da media";
+    alert("Maior: " + maior + "\nMenor: " + menor + "\nMedia: " + media + "\n" + mensagem);
+}
+function exercicio15() {
+    let indice = 0;
+    let total = 0;
+
+    while (indice < 4) {
+        let conta = parseFloat(prompt("Digite o valor da conta:"));
+        total += conta;
+        indice++;
+    }
+
+    let renda = parseFloat(prompt("Digite sua renda mensal:"));
+    let percentual = (total / renda) * 100;
+
+    let mensagem = percentual > 50 ? "Orçamento comprometido" : "Orçamento saudável";
+
+    alert("Total das contas: " + total + "\nPercentual da renda: " + percentual.toFixed(2) + "%\n" + mensagem);
+}
