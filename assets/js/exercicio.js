@@ -507,3 +507,265 @@ function exercicio30() {
         "\nDonald: " + donald
     );
 }
+function exercicio31() {
+    let qtd = parseInt(prompt("Quantidade de clientes:"));
+    let indice = 0;
+    let credito = 0, debito = 0, dinheiro = 0;
+
+    while (indice < qtd) {
+        let forma = prompt("Forma de pagamento (CRÉDITO/DÉBITO/DINHEIRO):").toUpperCase();
+
+        if (forma === "CRÉDITO") credito++;
+        else if (forma === "DÉBITO") debito++;
+        else if (forma === "DINHEIRO") dinheiro++;
+
+        indice++;
+    }
+
+    alert("Crédito: " + credito + "\nDébito: " + debito + "\nDinheiro: " + dinheiro);
+}
+function exercicio32() {
+    let qtd = parseInt(prompt("Quantidade de ingressos:"));
+    let indice = 0;
+    let inteira = 0, meia = 0, cortesia = 0;
+
+    while (indice < qtd) {
+        let tipo = prompt("Tipo (INTEIRA/MEIA/CORTESIA):").toUpperCase();
+
+        if (tipo === "INTEIRA") inteira++;
+        else if (tipo === "MEIA") meia++;
+        else if (tipo === "CORTESIA") cortesia++;
+
+        indice++;
+    }
+
+    alert("Inteira: " + inteira + "\nMeia: " + meia + "\nCortesia: " + cortesia);
+}
+function exercicio33() {
+    let qtd = parseInt(prompt("Quantidade de lanches:"));
+    let indice = 0;
+    let hamburguer = 0, pizza = 0, hotdog = 0;
+
+    while (indice < qtd) {
+        let tipo = prompt("Lanche (HAMBURGUER/PIZZA/HOTDOG):").toUpperCase();
+
+        if (tipo === "HAMBURGUER") hamburguer++;
+        else if (tipo === "PIZZA") pizza++;
+        else if (tipo === "HOTDOG") hotdog++;
+
+        indice++;
+    }
+
+    alert("Hambúrguer: " + hamburguer + "\nPizza: " + pizza + "\nHotdog: " + hotdog);
+}
+function exercicio34() {
+    let qtd = parseInt(prompt("Quantidade de livros:"));
+    let indice = 0;
+    let ficcao = 0, estudo = 0, infantil = 0;
+
+    while (indice < qtd) {
+        let categoria = prompt("Categoria (FICÇÃO/ESTUDO/INFANTIL):").toUpperCase();
+
+        if (categoria === "FICÇÃO") ficcao++;
+        else if (categoria === "ESTUDO") estudo++;
+        else if (categoria === "INFANTIL") infantil++;
+
+        indice++;
+    }
+
+    alert("Ficção: " + ficcao + "\nEstudo: " + estudo + "\nInfantil: " + infantil);
+}
+function exercicio35() {
+    let contador = 0;
+    let nome = "";
+
+    while (nome !== "SAIR") {
+        nome = prompt("Digite o nome do personagem (ou sair):").toUpperCase();
+
+        if (nome !== "SAIR") {
+            alert("Personagem cadastrado: " + nome);
+            contador++;
+        }
+    }
+
+    alert("Total de personagens cadastrados: " + contador);
+}
+function exercicio36() {
+    let total = 0;
+    let rpg = 0;
+    let jogo = "";
+
+    while (jogo !== "SAIR") {
+        jogo = prompt("Digite o nome do jogo (ou sair):").toUpperCase();
+
+        if (jogo !== "SAIR") {
+            let genero = prompt("Digite o gênero do jogo:").toUpperCase();
+            total++;
+            if (genero === "RPG") rpg++;
+        }
+    }
+
+    alert("Total de jogos: " + total + "\nJogos RPG: " + rpg);
+}
+function exercicio37() {
+    let baixo = 0, medio = 0, alto = 0;
+    let nome = "";
+
+    while (nome !== "SAIR") {
+        nome = prompt("Digite o nome do herói (ou sair):").toUpperCase();
+
+        if (nome !== "SAIR") {
+            let poder = prompt("Nível de poder (BAIXO/MEDIO/ALTO):").toUpperCase();
+
+            if (poder === "BAIXO") baixo++;
+            else if (poder === "MEDIO") medio++;
+            else if (poder === "ALTO") alto++;
+        }
+    }
+
+    alert("Baixo: " + baixo + "\nMédio: " + medio + "\nAlto: " + alto);
+}
+function exercicio38() {
+    let total = 0;
+    let soma = 0;
+    let serie = "";
+
+    while (serie !== "SAIR") {
+        serie = prompt("Digite o nome da série (ou sair):").toUpperCase();
+
+        if (serie !== "SAIR") {
+            let nota = parseFloat(prompt("Digite a nota (0 a 10):"));
+            soma += nota;
+            total++;
+        }
+    }
+
+    let media = total > 0 ? soma / total : 0;
+    alert("Séries cadastradas: " + total + "\nMédia das notas: " + media);
+}
+function exercicio39() {
+    let total = 0;
+    let jogou = 0;
+    let item = "";
+
+    while (item !== "SAIR") {
+        item = prompt("Digite o console/jogo (ou sair):").toUpperCase();
+
+        if (item !== "SAIR") {
+            let resposta = prompt("Você já jogou? (SIM/NÃO):").toUpperCase();
+            total++;
+            if (resposta === "SIM") jogou++;
+        }
+    }
+
+    alert("Itens cadastrados: " + total + "\nJá jogou: " + jogou);
+}
+function exercicio40() {
+    let distancia = parseFloat(prompt("Distância percorrida (km):"));
+    let consumo = parseFloat(prompt("Consumo (litros):"));
+    let opcao = 0;
+
+    while (opcao !== 10) {
+        opcao = parseInt(prompt(
+            "1- Consumo médio\n2- Custo da viagem\n3- Alterar distância\n4- Alterar consumo\n10- Sair"
+        ));
+
+        if (opcao === 1) {
+            alert("Consumo médio: " + (distancia / consumo) + " km/l");
+        } else if (opcao === 2) {
+            let preco = parseFloat(prompt("Preço do litro:"));
+            alert("Custo da viagem: " + (preco * consumo));
+        } else if (opcao === 3) {
+            distancia = parseFloat(prompt("Nova distância:"));
+        } else if (opcao === 4) {
+            consumo = parseFloat(prompt("Novo consumo:"));
+        }
+    }
+}
+function exercicio41() {
+    let saldo = parseFloat(prompt("Saldo inicial:"));
+    let opcao = 0;
+
+    while (opcao !== 10) {
+        opcao = parseInt(prompt("1- Depositar\n2- Sacar\n3- Saldo\n10- Sair"));
+
+        if (opcao === 1) {
+            saldo += parseFloat(prompt("Valor do depósito:"));
+        } else if (opcao === 2) {
+            let saque = parseFloat(prompt("Valor do saque:"));
+            if (saque <= saldo) saldo -= saque;
+            else alert("Saldo insuficiente");
+        } else if (opcao === 3) {
+            alert("Saldo: " + saldo);
+        }
+    }
+
+    alert("Saldo final: " + saldo);
+}
+function exercicio42() {
+    let opcao = 0;
+
+    while (opcao !== 10) {
+        opcao = parseInt(prompt("1- C para F\n2- F para C\n10- Sair"));
+
+        if (opcao === 1) {
+            let c = parseFloat(prompt("Celsius:"));
+            alert("Fahrenheit: " + (c * 9/5 + 32));
+        } else if (opcao === 2) {
+            let f = parseFloat(prompt("Fahrenheit:"));
+            alert("Celsius: " + ((f - 32) * 5/9));
+        }
+    }
+}
+function exercicio43() {
+    let opcao = 0;
+
+    while (opcao !== 10) {
+        opcao = parseInt(prompt("1- Calcular IMC\n2- Instruções\n10- Sair"));
+
+        if (opcao === 1) {
+            let peso = parseFloat(prompt("Peso:"));
+            let altura = parseFloat(prompt("Altura:"));
+            alert("IMC: " + (peso / (altura * altura)));
+        } else if (opcao === 2) {
+            alert("IMC = peso / (altura²)");
+        }
+    }
+}
+function exercicio44() {
+    let estoque = 0;
+    let opcao = 0;
+
+    while (opcao !== 10) {
+        opcao = parseInt(prompt("1- Adicionar\n2- Remover\n3- Consultar\n10- Sair"));
+
+        if (opcao === 1) {
+            estoque += parseInt(prompt("Quantidade:"));
+        } else if (opcao === 2) {
+            let qtd = parseInt(prompt("Quantidade:"));
+            if (qtd <= estoque) estoque -= qtd;
+            else alert("Estoque insuficiente");
+        } else if (opcao === 3) {
+            alert("Estoque atual: " + estoque);
+        }
+    }
+
+    alert("Estoque final: " + estoque);
+}
+function exercicio45() {
+    let total = 0;
+    let opcao = 0;
+
+    while (opcao !== 10) {
+        opcao = parseInt(prompt(
+            "1- Hambúrguer (15)\n2- Pizza (25)\n3- Refrigerante (8)\n4- Ver total\n10- Finalizar"
+        ));
+
+        if (opcao === 1) total += 15;
+        else if (opcao === 2) total += 25;
+        else if (opcao === 3) total += 8;
+        else if (opcao === 4) alert("Total parcial: " + total);
+    }
+
+    alert("Total do pedido: R$ " + total);
+}
