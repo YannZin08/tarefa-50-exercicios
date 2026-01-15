@@ -877,59 +877,63 @@ function exercicio48() {
     );
 }
 function exercicio49() {
-    let continuar = "SIM";
-    let abaixo = 0;
-    let normal = 0;
-    let acima = 0;
-    let maiorIMC = 0;
-    let menorIMC = 0;
-    let nomeMaior = "";
-    let nomeMenor = "";
-    let somaIdade = 0;
-    let qtd = 0;
 
-    while (continuar != "NAO") {
-        let nome = prompt("Nome:");
-        let idade = parseInt(prompt("Idade:"));
-        let peso = parseFloat(prompt("Peso:"));
-        let altura = parseFloat(prompt("Altura:"));
+    let indice = 0;
+    let quantAlunos = parseInt(prompt("Quantos alunos você deseja cadastrar?"));
+    
+    let somaIdade = 0;
+    let pesoBaixo = 0;
+    let pesoNormal = 0;
+    let pesoAcima = 0;
+    
+    let menorImc = 999;
+    let maiorImc = 0;
+    let nomeMenor = "";
+    let nomeMaior = "";
+
+    while (indice < quantAlunos) {
+
+        let nome = prompt("Digite o nome do aluno:");
+        let idade = parseInt(prompt("Digite a idade do aluno"));
+        somaIdade = somaIdade + idade;
+
+        let peso = parseFloat(prompt("Digite seu peso: "));
+        let altura = parseFloat(prompt("Digite sua altura: "));
 
         let imc = peso / (altura * altura);
 
-        somaIdade += idade;
-        qtd++;
-
-        if (qtd == 1) {
-            maiorIMC = imc;
-            menorIMC = imc;
-            nomeMaior = nome;
+        if (imc < menorImc) {
+            menorImc = imc;
             nomeMenor = nome;
-        } else {
-            if (imc > maiorIMC) {
-                maiorIMC = imc;
-                nomeMaior = nome;
-            }
-            if (imc < menorIMC) {
-                menorIMC = imc;
-                nomeMenor = nome;
-            }
         }
 
-        if (imc < 18.5) abaixo++;
-        else if (imc < 25) normal++;
-        else acima++;
+        if (imc > maiorImc) {
+            maiorImc = imc;
+            nomeMaior = nome;
+        }
 
-        continuar = prompt("Deseja continuar? (SIM/NAO)").toUpperCase();
+        if (imc < 18.5) {
+            pesoBaixo++;
+        } else if (imc < 25) {
+            pesoNormal++;
+        } else {
+            pesoAcima++;
+        }
+
+        indice++;
     }
 
+    let mediaIdade = somaIdade / quantAlunos;
+
     alert(
-        "RESUMO\n" +
-        "Abaixo do peso: " + abaixo +
-        "\nPeso normal: " + normal +
-        "\nAcima do peso: " + acima +
-        "\nMaior IMC: " + nomeMaior +
-        "\nMenor IMC: " + nomeMenor +
-        "\nMédia de idade: " + (somaIdade / qtd)
+        "O aluno com maior IMC é " + nomeMaior + " com IMC de " + maiorImc.toFixed(2) +
+        "\nO aluno com menor IMC é " + nomeMenor + " com IMC de " + menorImc.toFixed(2) +
+        "\n\nResumo IMC - Alunos" +
+        "\n- Abaixo do peso: " + pesoBaixo +
+        "\n- Peso normal: " + pesoNormal +
+        "\n- Sobrepeso: " + pesoAcima +
+        "\n\nA média de idade dos alunos é: " + mediaIdade.toFixed(1) +
+        " de " + quantAlunos + " alunos cadastrados"
     );
 }
 function exercicio50() {
