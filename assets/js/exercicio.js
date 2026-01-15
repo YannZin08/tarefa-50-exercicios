@@ -769,3 +769,209 @@ function exercicio45() {
 
     alert("Total do pedido: R$ " + total);
 }
+function exercicio46() {
+    let opcao = 0;
+    let soma = 0;
+    let qtd = 0;
+
+    while (opcao != 10) {
+        opcao = parseInt(prompt(
+            "MENU NOTAS\n" +
+            "1 - Cadastrar nota\n" +
+            "2 - Ver média das notas\n" +
+            "3 - Ver quantidade de notas\n" +
+            "10 - Sair"
+        ));
+
+        if (opcao == 1) {
+            let nota = parseFloat(prompt("Digite a nota:"));
+            soma += nota;
+            qtd++;
+            alert("Nota cadastrada!");
+        } else if (opcao == 2) {
+            if (qtd > 0) {
+                alert("Média: " + (soma / qtd));
+            } else {
+                alert("Nenhuma nota cadastrada");
+            }
+        } else if (opcao == 3) {
+            alert("Quantidade de notas: " + qtd);
+        }
+    }
+}
+function exercicio47() {
+    let opcao = 0;
+    let ruim = 0;
+    let regular = 0;
+    let bom = 0;
+
+    while (opcao != 10) {
+        opcao = parseInt(prompt(
+            "PESQUISA\n" +
+            "1 - Ruim\n" +
+            "2 - Regular\n" +
+            "3 - Bom\n" +
+            "4 - Ver resumo\n" +
+            "10 - Encerrar"
+        ));
+
+        if (opcao == 1) ruim++;
+        else if (opcao == 2) regular++;
+        else if (opcao == 3) bom++;
+        else if (opcao == 4) {
+            alert(
+                "Ruim: " + ruim +
+                "\nRegular: " + regular +
+                "\nBom: " + bom
+            );
+        }
+    }
+
+    alert(
+        "RESUMO FINAL\n" +
+        "Ruim: " + ruim +
+        "\nRegular: " + regular +
+        "\nBom: " + bom
+    );
+}
+function exercicio48() {
+    let continuar = "SIM";
+    let total = 0;
+    let qtd = 0;
+    let maior = 0;
+    let menor = 0;
+    let credito = 0;
+    let debito = 0;
+    let pix = 0;
+
+    while (continuar != "NAO") {
+        let valor = parseFloat(prompt("Valor da compra:"));
+        let forma = prompt("Forma de pagamento (CRÉDITO/DÉBITO/PIX)").toUpperCase();
+
+        total += valor;
+        qtd++;
+
+        if (qtd == 1) {
+            maior = valor;
+            menor = valor;
+        } else {
+            if (valor > maior) maior = valor;
+            if (valor < menor) menor = valor;
+        }
+
+        if (forma == "CRÉDITO") credito++;
+        else if (forma == "DÉBITO") debito++;
+        else if (forma == "PIX") pix++;
+
+        continuar = prompt("Deseja continuar? (SIM/NAO)").toUpperCase();
+    }
+
+    alert(
+        "RESUMO\n" +
+        "Maior venda: " + maior +
+        "\nMenor venda: " + menor +
+        "\nMédia: " + (total / qtd) +
+        "\nCrédito: " + credito +
+        "\nDébito: " + debito +
+        "\nPIX: " + pix
+    );
+}
+function exercicio49() {
+    let continuar = "SIM";
+    let abaixo = 0;
+    let normal = 0;
+    let acima = 0;
+    let maiorIMC = 0;
+    let menorIMC = 0;
+    let nomeMaior = "";
+    let nomeMenor = "";
+    let somaIdade = 0;
+    let qtd = 0;
+
+    while (continuar != "NAO") {
+        let nome = prompt("Nome:");
+        let idade = parseInt(prompt("Idade:"));
+        let peso = parseFloat(prompt("Peso:"));
+        let altura = parseFloat(prompt("Altura:"));
+
+        let imc = peso / (altura * altura);
+
+        somaIdade += idade;
+        qtd++;
+
+        if (qtd == 1) {
+            maiorIMC = imc;
+            menorIMC = imc;
+            nomeMaior = nome;
+            nomeMenor = nome;
+        } else {
+            if (imc > maiorIMC) {
+                maiorIMC = imc;
+                nomeMaior = nome;
+            }
+            if (imc < menorIMC) {
+                menorIMC = imc;
+                nomeMenor = nome;
+            }
+        }
+
+        if (imc < 18.5) abaixo++;
+        else if (imc < 25) normal++;
+        else acima++;
+
+        continuar = prompt("Deseja continuar? (SIM/NAO)").toUpperCase();
+    }
+
+    alert(
+        "RESUMO\n" +
+        "Abaixo do peso: " + abaixo +
+        "\nPeso normal: " + normal +
+        "\nAcima do peso: " + acima +
+        "\nMaior IMC: " + nomeMaior +
+        "\nMenor IMC: " + nomeMenor +
+        "\nMédia de idade: " + (somaIdade / qtd)
+    );
+}
+function exercicio50() {
+    let continuar = "SIM";
+    let somaNotas = 0;
+    let qtd = 0;
+    let maior = 0;
+    let menor = 0;
+    let filme = 0;
+    let serie = 0;
+    let anime = 0;
+
+    while (continuar != "NAO") {
+        let nome = prompt("Nome do título:");
+        let tipo = prompt("Tipo (FILME/SÉRIE/ANIME)").toUpperCase();
+        let nota = parseFloat(prompt("Nota (0 a 10):"));
+
+        somaNotas += nota;
+        qtd++;
+
+        if (qtd == 1) {
+            maior = nota;
+            menor = nota;
+        } else {
+            if (nota > maior) maior = nota;
+            if (nota < menor) menor = nota;
+        }
+
+        if (tipo == "FILME") filme++;
+        else if (tipo == "SÉRIE") serie++;
+        else if (tipo == "ANIME") anime++;
+
+        continuar = prompt("Deseja continuar? (SIM/NAO)").toUpperCase();
+    }
+
+    alert(
+        "RESUMO\n" +
+        "Maior nota: " + maior +
+        "\nMenor nota: " + menor +
+        "\nMédia: " + (somaNotas / qtd) +
+        "\nFilmes: " + filme +
+        "\nSéries: " + serie +
+        "\nAnimes: " + anime
+    );
+}
