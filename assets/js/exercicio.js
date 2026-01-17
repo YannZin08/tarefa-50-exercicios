@@ -493,7 +493,6 @@ function exercicio30() {
 
     while (indice < quantidade) {
         let personagem = prompt("Digite o personagem (MICKEY / MINNIE / DONALD):").toUpperCase();
-
         if (personagem === "MICKEY") mickey++;
         else if (personagem === "MINNIE") minnie++;
         else if (personagem === "DONALD") donald++;
