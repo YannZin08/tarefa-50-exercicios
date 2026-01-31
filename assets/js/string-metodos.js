@@ -181,3 +181,39 @@ function padStart() {
     let linha = nome.padEnd(30, " ") + idade.toString().padEnd(3, " ") + salario.toString().padEnd(10, " ");
     alert(`Linha do CSV: ' ${linha}'`)
  }
+
+ function jogoPalavras(){
+    let palavras = ["Roblox", "Free Fire", "Gta"];
+    let nomeJogador = prompt("Digite o seu nome");
+    let quantidadeTentativas = 10;
+    if (nomeJogador.toLowerCase().inclusives("Lorenzo")){
+        quantidadeTentativas = 3
+    }
+    while(quantidadeTentativas >= 0){
+        let nomeJogo = prompt("Tente adivinhar o nome dos 3 jogos");
+        // Verificando se o nome que o usuario digitou esta dentro da lista
+        if(palavras.includes(nomeJogo)){
+            // Dar mais 3 tentativas a cada acerto
+            quantidadeTentativas += 3;
+            // Como descobrir a posição
+            let indiceJogo = palavras.indexOf(nomeJogo);
+            // remover da lista o jogo que acertou
+            palavras.splice(indiceJogo, 1);
+            console.log(palavras);
+            alert(`Acertou ${nomeJogo}`);
+            if(palavras.length === 0) {
+                alert("Ganhou o jogo");
+                break;
+            }
+        }else {
+            // decrementar em 1
+            quantidadeTentativas -= 1;
+            alert(`Errou\nVoce tem ${quantidadeTentativas} tentativas restantes`);
+        }
+        console.log("quantidade de tentativas: " + quantidadeTentativas + "\npalavras " + palavras);
+        if(quantidadeTentativas <= 0 ){
+            alert("Perdeu o jogo");
+            break;
+        }
+    }
+}
