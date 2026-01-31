@@ -1,10 +1,10 @@
-function converterParaMaiusculo(){
+function converterParaMaiusculo() {
     let texto = "abacate";
     let textoMaiusculo = texto.toUpperCase();
 
     alert(`texto original: ${texto}\nTexto maisuculo: ${textomaiusculo}`);
 }
-function converterParaMinusculo(){
+function converterParaMinusculo() {
     let texto = "abacate";
     let textoMinusculo = texto.toLowerCase();
 
@@ -14,7 +14,7 @@ function removeEspacosFinal() {
     let texto = "Um fase bem legal "
     let textoSemEspacosFinal = texto.trimEnd();
 
-    alert(`Texto original: `${texto}`
+    alert(`Texto original: `${ texto }`
         Texto sem espaçoes no final: ' ${textoSemEspacosFinal}'`);
 }
 
@@ -24,10 +24,10 @@ function removerEspacosComecoFinal() {
     let textoSemEspacosComecoFinal = texto.trim();
 
     alert(`Texto original: '${texto}'
-texto sem espaços no começo e no final: '${textoSemEspacosComecoFinal}'` );
+texto sem espaços no começo e no final: '${textoSemEspacosComecoFinal}'`);
 }
 
-function substituir(){
+function substituir() {
     let texto = "Lorezzo faltou";
     let novoTexto = texto.replace("Lorezzo", "Lorenzo");
 
@@ -45,7 +45,7 @@ function substituirCaminho() {
     alert("Valor convertido: " + valor + "\nValor dobrado: " + valor * 2)
 }
 
-function substring(){
+function substring() {
     // 31/01/2026
     // dia
     // mes
@@ -72,7 +72,7 @@ function substringHorario() {
     let horaBrasil = 0;
 
     if (periodo === "am") {
-        
+
         horaBrasil = hora;
     } else {
         // Pos almoço
@@ -80,19 +80,104 @@ function substringHorario() {
     }
 
     let horarioBrasil = `${horaBrasil}:${minuto}`
-    alert (`Horario Usa: ${horarioAmericano}
+    alert(`Horario Usa: ${horarioAmericano}
     horario Brasil: ${horarioBrasil}`);
 }
+
 function exemploLenght() {
     let texto = "Vingadores Guerra Infinita";
     let quantidadeCaracteres = texto.length;
 
-    alert(`Texto ${texto}`)
+    alert(`Texto ${texto}
+    Quantidade de caracteres: ${quantidadeCaracteres}`);
+}
+
+function comecaCom() {
+    let nomeEmpresa = "Blusoft";
+
+    let empresaBlumenau = false;
+    if (nomeEmpresa.toLowerCase().startsWith("blu") === true) {
+        empresaBlumenau = true;
+    }
+
+    alert(`Empresa de Blumenau: ${empresaBlumenau}
+nome da empresa: ${nomeEmpresa}`);
+}
+
+function terminaCom() {
+    let nomeCompleto = "Ana da Silva Souza";
+
+    if (nomeCompleto.toUpperCase().endsWith("SILVA") || nomeCompleto.toUpperCase().endsWith("SOUZA")) {
+        alert("Sobrenome comum")
+    } else {
+        alert("Nã é um sobrenome comum")
+    }
  }
-function comecaCom() { }
-function terminaCom() { }
-function contem() { }
-function indiceDoCaracter() { }
-function quebrarString() { }
-function padStar() { }
-function padEnd() { }
+
+function contem() {
+    let refeicao = "Pure de feijao com frango";
+
+    if (refeicao.toLowerCase().includes("feijao") || refeicao.toLowerCase().includes("feijao")) {
+        alert("Tipicamente do BRasil");
+    } else {
+        alert("Outra comida");
+    }
+ }
+
+function indiceDoCaracter() { 
+    let hora = "23:49";
+    // Retomar o indice do caractere encontrado, caso nao encontrar retorna -1
+    let indiceDoisPontos = hora.indexOf("49");
+    alert(`Hora ${hora}
+        Indice do ':' ${indiceDoisPontos}`);
+}
+
+function quebrarString() {
+    let data = "31/01/2026";
+    let partes = data.split("/"); // => ["31", "01", "2026"]
+    let dia = partes[0];
+    let mes = partes[1];
+    let ano = partes [2];
+    // Apresentar assim
+    // Blumenau, <dia> de <mes> de <ano>
+    alert(`Blumenau, ${dia} de ${mes} de ${ano}`);
+ }
+
+function quebraStringDataHora() {
+    let dataHora = "31/01/2026 23:49:10";
+    let parteDataHora = dataHora.split(" "); // => ["31/01/2026", "23:49:20"]
+    let partesData = parteDataHora[0].split("/"); // "31/01/2026" => ["31", "01", "2026"]
+    let partesHora = parteDataHora{1}.split(:); // "23:49:10" ==> ["23", "49", "10"]
+    let dia = partesData[0]; // 31
+    let mes = partesData[1]; // 01
+    let ano = partesData[2]; // 2026
+
+    let hora = partesHora[0]; // 23
+    let minuto = partesHora[1]; // 49
+    let segundo = partesHora[2]; // 10
+    // Apresentar assim
+    // Blumenau, <dia> de <mes> de <ano>
+    alert(`Blumenau, ${dia} de ${mes} de ${ano}
+        Hora: ${hora} Minuto: ${minuto} Segundo: ${segundo}`);
+ }
+
+function padStart() {
+    // Apresntar sempre 15 caracteres
+    let numerocartao = "5230 9713 6338 5801";
+    let ultimoNumeros = numeroCartao.substring(15, 19);
+    alert(ultimosNumeros.padStar(16, "*"));
+ }
+ function padEnd() {
+    // CSV Separando por caracteres
+    // Matheus;25;5930.24
+    // CSV Separando por largura fixa
+    // Nome 30 caracteres idade 3 salario 10
+    // Matheus
+    // Ama da Silva Souza
+    let nome ="Matheus";
+    let idade = 25
+    let salario = 5930.24;
+
+    let linha = nome.padEnd(30, " ") + idade.toString().padEnd(3, " ") + salario.toString().padEnd(10, " ");
+    alert(`Linha do CSV: ' ${linha}'`)
+ }
